@@ -148,6 +148,22 @@ suites:
             password: somepass
             process_name_regex: .*cassandra.*
 
+- name: datadog_cassandra_use_new_metrics
+  run_list:
+    - recipe[datadog::cassandra]
+  attributes:
+    datadog:
+      <<: *DATADOG
+      cassandra:
+        init_config:
+          use_new_metrics: true
+        instances:
+          - host: localhost
+            port: 7199
+            user: someuser
+            password: somepass
+            process_name_regex: .*cassandra.*
+
 - name: datadog_couchdb
   run_list:
     - recipe[datadog::couchdb]

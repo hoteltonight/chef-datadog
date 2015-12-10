@@ -25,5 +25,6 @@ include_recipe 'datadog::dd-agent'
 # https://github.com/DataDog/dd-agent/blob/master/conf.d/cassandra.yaml.example
 #
 datadog_monitor 'cassandra' do
+  init_config node['datadog']['cassandra']['init_config']
   instances node['datadog']['cassandra']['instances']
 end
